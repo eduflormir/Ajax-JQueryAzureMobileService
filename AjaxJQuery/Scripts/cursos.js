@@ -54,9 +54,14 @@ function cargarModificacion(id) {
     $.get(myUrl, function(res) // recupero objeto
     {
        // asigno valores
-        document.getElementById("txtNombre").value = res.nombre;
-        document.getElementById("txtDuracion").value = res.duracion;
+        $("#txtNombre").val(res.nombre);
+        $("#txtDuracion").val(res.duracion);
         modificando = res.id;
+
+        // agrego class a cajas de texto
+        $("#txtNombre").addClass("colorear");
+        $("#txtDuracion").addClass("colorear");
+       
      });
 }
 
@@ -134,17 +139,36 @@ function agregarCurso() {
 
 function refrescar() {
     $("#cursos").load(getCursos());
+    limpiarCajas(); // limpiar cajas
+}
+
+function limpiarCajas() {
+    // elimino class a cajas de texto
+    $("#txtNombre").removeClass("colorear");
+    $("#txtDuracion").removeClass("colorear");
+
+    // limpiar cajas de texto
+    $("#txtNombre").val("");
+    $("#txtDuracion").val("");
+    
 }
 
 $(document).ready(function () {
-    $("#btnBuscar").click(buscarCurso);
+    $("#btnBuscar").click(function() {
+        buscarCurso();
+        limpiarCajas();
+    });
     $("#btnRefrescar").click(refrescar);
     $("#btnUpdate").click(function() {
         if (modificando != undefined)
             ejecutarModificacion();
         else
             agregarCurso();
+
+        limpiarCajas();
     });
+
+    
 
 });
 
