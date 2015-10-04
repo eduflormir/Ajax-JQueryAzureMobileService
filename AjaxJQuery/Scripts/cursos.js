@@ -1,4 +1,3 @@
-﻿
 var url = "https://alumnoscurso.azure-mobile.net/Tables/Curso"; // URL de Azure Mobile Service
 
 var modificando = undefined;
@@ -171,4 +170,5 @@ $(document).ready(function () {
     
 
 });
+
 
