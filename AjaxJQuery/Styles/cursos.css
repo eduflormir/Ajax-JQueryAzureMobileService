@@ -1,0 +1,28 @@
+﻿
+#header {
+    color:grey;
+    text-align:center;
+    padding:1px;
+    font-size:x-small;
+}
+
+#a {
+   width:350px;
+   float:left;
+   padding:10px;
+}
+
+#b {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+
+
+
+#footer,a {
+    color:grey;
+    clear:both;
+    text-align:center;
+   padding:1px;	 	 
+}
